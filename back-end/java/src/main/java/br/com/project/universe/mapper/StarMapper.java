@@ -1,7 +1,5 @@
 package br.com.project.universe.mapper;
 
-import org.springframework.http.ResponseEntity;
-
 import br.com.project.universe.dto.StarRequestDTO;
 import br.com.project.universe.dto.StarResponseDTO;
 import br.com.project.universe.entity.Star;
