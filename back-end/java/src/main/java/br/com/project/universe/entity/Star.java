@@ -13,7 +13,6 @@ import lombok.ToString;
 
 @Getter
 @Setter 
-@AllArgsConstructor 
 @NoArgsConstructor 
 @ToString 
 @Entity 
@@ -31,4 +30,11 @@ public class Star
 
     @Column(name = "temperature")
     private double temperature;
+
+    public Star(String name, double mass, double temperature)
+    {
+        this.name = name;
+        this.mass = mass;
+        this.temperature = temperature;
+    }
 }
