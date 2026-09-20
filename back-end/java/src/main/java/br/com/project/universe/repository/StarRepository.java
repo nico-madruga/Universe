@@ -6,5 +6,5 @@ import br.com.project.universe.entity.Star;
 
 public interface StarRepository extends JpaRepository<Star, Long>
 {
-
+    
 }
