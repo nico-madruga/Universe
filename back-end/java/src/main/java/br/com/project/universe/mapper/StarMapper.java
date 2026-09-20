@@ -1,5 +1,7 @@
 package br.com.project.universe.mapper;
 
+import java.util.List;
+
 import org.springframework.http.ResponseEntity;
 
 import br.com.project.universe.dto.StarRequestDTO;
@@ -26,5 +28,12 @@ public class StarMapper
             star.getTemperature());
 
             return starResponse;
+    }
+
+    public List<StarResponseDTO> toListDTO(List<Star> stars)
+    {
+        return stars.stream()
+                    .map(star -> toDTO(star))
+                    .toList();
     }
 }
