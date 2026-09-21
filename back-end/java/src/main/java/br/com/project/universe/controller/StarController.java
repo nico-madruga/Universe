@@ -12,7 +12,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 import br.com.project.universe.dto.StarRequestDTO;
+import br.com.project.universe.dto.StarResponseDTO;
 import br.com.project.universe.service.StarService;
 
 @RestController
@@ -34,9 +37,11 @@ public class StarController
     }
 
     @GetMapping("/checkout/all")
-    public ResponseEntity listStars() //must return a ResponseEntity<List<Stars>>
+    public ResponseEntity<List<StarResponseDTO>> listStars()
     {
-        return ResponseEntity.ok("s"); //just so it isn't red
+        List<StarResponseDTO> stars = starS.listStars();
+
+        return ResponseEntity.ok(stars);
     }
 
     @GetMapping("/checkout/{id}")
