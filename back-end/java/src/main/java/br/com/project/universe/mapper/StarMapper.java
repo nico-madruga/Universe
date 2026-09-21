@@ -1,9 +1,12 @@
 package br.com.project.universe.mapper;
 
+import org.springframework.stereotype.Component;
+
 import br.com.project.universe.dto.StarRequestDTO;
 import br.com.project.universe.dto.StarResponseDTO;
 import br.com.project.universe.entity.Star;
 
+@Component 
 public class StarMapper 
 {
     public Star toEntity(StarRequestDTO starDTO)
