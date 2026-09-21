@@ -2,12 +2,13 @@ package br.com.project.universe.mapper;
 
 import java.util.List;
 
-import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Component;
 
 import br.com.project.universe.dto.StarRequestDTO;
 import br.com.project.universe.dto.StarResponseDTO;
 import br.com.project.universe.entity.Star;
 
+@Component 
 public class StarMapper 
 {
     public Star toEntity(StarRequestDTO starDTO)
@@ -33,7 +34,7 @@ public class StarMapper
     public List<StarResponseDTO> toListDTO(List<Star> stars)
     {
         return stars.stream()
-                    .map(star -> toDTO(star))
-                    .toList();
+            .map(star -> toDTO(star))
+            .toList();
     }
 }
