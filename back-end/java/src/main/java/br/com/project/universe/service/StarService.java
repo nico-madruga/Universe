@@ -29,4 +29,11 @@ public class StarService
         starRepo.save(star);
     }
 
+    public List<StarResponseDTO> listStars()
+    {
+        List<Star> stars = starRepo.findAll();
+
+        return starMap.toListDTO(stars);
+    }
+
 }
