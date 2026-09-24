@@ -1,0 +1,30 @@
+:root
+{
+    --background-color: #080B14;
+    --panels-color: #101624;
+    --panel-borders-color: #263149;
+    --main-text-color: #E8ECF4;
+    --secondary-text-color: #9AA6BA;
+    --primary-accent-color: #4CC9F0;
+    --secondary-accent-color: #8B7CFF;
+    --highlight-color: #A9E8FF;
+}
+
+header
+{
+    display: flex;
+    background-color: aliceblue;
+    flex-direction: row-reverse;
+    justify-content: space-evenly;
+}
+
+header input
+{
+    align-self: center;
+    height: 2rem;
+}
+
+body
+{
+    background-color: var(--background-color);
+}
