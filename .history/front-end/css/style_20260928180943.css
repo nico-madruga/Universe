@@ -13,7 +13,6 @@
     --secondary-accent-color: #8B7CFF;
     --control-button-color: #8B7CFF4D;
     --control-button-border: #8B7CFF4D;
-    --control-border-hover: #F1EFFF4D;
     --highlight-color: #A9E8FF;
 }
 
@@ -132,7 +131,6 @@ body
     flex-direction: column;
     padding-top: 5rem;
     gap: 48px;
-    color: var(--secondary-text-color);
 }
 
 .controls
@@ -153,16 +151,7 @@ body
 {
     background-color: var(--control-button-color);
     border-style: solid;
-    color: var(--secondary-text-color);
-    font-size: 2.5rem;
     border-color: var(--control-button-border);
     width: 25vw;
     height: 4vw;
-}
-
-.control-button:hover
-{
-    background-color: var(--secondary-accent-color);
-    border-color: var(--control-border-hover);
-    color: var(--button-color-hovered);
 }

@@ -164,5 +164,5 @@ body
 {
     background-color: var(--secondary-accent-color);
     border-color: var(--control-border-hover);
-    color: var(--button-color-hovered);
+    color: var(--button-color);
 }

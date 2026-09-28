@@ -13,7 +13,6 @@
     --secondary-accent-color: #8B7CFF;
     --control-button-color: #8B7CFF4D;
     --control-button-border: #8B7CFF4D;
-    --control-border-hover: #F1EFFF4D;
     --highlight-color: #A9E8FF;
 }
 
@@ -161,8 +160,3 @@ body
 }
 
 .control-button:hover
-{
-    background-color: var(--secondary-accent-color);
-    border-color: var(--control-border-hover);
-    color: var(--button-color-hovered);
-}
