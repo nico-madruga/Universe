@@ -63,14 +63,11 @@ body
     display: flex;
     flex-direction: column;
     gap: 48px;
-    padding-top: 4.8rem;
 }
 
 .standard_button
 {
-    align-self: center;
-    width: 15vw;
-    height: 5vh;
+    width: 5vw;
     background-color: var(--button-color);
     border-color: var(--panel-borders-color);
     border-style: solid;
