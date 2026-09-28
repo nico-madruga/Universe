@@ -63,7 +63,7 @@ body
     display: flex;
     flex-direction: column;
     gap: 48px;
-    padding-top: 4.8rem;
+    padding-top: 5rem;
 }
 
 .standard_button

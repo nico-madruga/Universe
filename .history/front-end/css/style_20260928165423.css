@@ -2,7 +2,7 @@
 {
     --background-color: #101624;
     --planet-background-color: #080B14;
-    --button-color: #2222224D;
+    --button-color: #222222
     --panels-color: #101624;
     --panel-borders-color: #263149;
     --main-text-color: #E8ECF4;
@@ -48,7 +48,7 @@ body
     text-align: center;
     width: 18vw;
     height: 66vh;
-    border: 2px solid var(--panel-borders-color);
+    background-color: purple;
 }
 
 .sidebar h2
@@ -63,16 +63,10 @@ body
     display: flex;
     flex-direction: column;
     gap: 48px;
-    padding-top: 4.8rem;
 }
 
 .standard_button
 {
-    align-self: center;
-    width: 15vw;
-    height: 5vh;
-    background-color: var(--button-color);
-    border-color: var(--panel-borders-color);
-    border-style: solid;
-    color: var(--secondary-text-color);
+    padding: 2rem;
+    background-color: var(--panels-color);
 }
