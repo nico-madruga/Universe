@@ -11,9 +11,6 @@
     --secondary-text-color: #9AA6BA;
     --primary-accent-color: #4CC9F0;
     --secondary-accent-color: #8B7CFF;
-    --control-button-color: #8B7CFF4D;
-    --control-button-border: #8B7CFF4D;
-    --control-border-hover: #F1EFFF4D;
     --highlight-color: #A9E8FF;
 }
 
@@ -113,11 +110,10 @@ body
 {
     display: flex;
     flex-direction: column;
-    padding-top: 2.4rem;
+    padding-top: 2rem;
     text-align: center;
     gap: 48px;
     width: 18vw;
-    border: 2px solid var(--panel-borders-color);
     background-color: var(--panels-color);
 }
 
@@ -130,39 +126,5 @@ body
 {
     display: flex;
     flex-direction: column;
-    padding-top: 5rem;
     gap: 48px;
-    color: var(--secondary-text-color);
-}
-
-.controls
-{
-    display: flex;
-    flex-direction: column;
-    gap: 3rem;
-    text-align: center;
-}
-
-.control-buttons
-{
-    display: flex;
-    justify-content: space-around;
-}
-
-.control-button
-{
-    background-color: var(--control-button-color);
-    border-style: solid;
-    color: var(--secondary-text-color);
-    font-size: 2.5rem;
-    border-color: var(--control-button-border);
-    width: 25vw;
-    height: 4vw;
-}
-
-.control-button:hover
-{
-    background-color: var(--secondary-accent-color);
-    border-color: var(--control-border-hover);
-    color: var(--button-color-hovered);
 }

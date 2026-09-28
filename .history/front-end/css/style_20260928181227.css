@@ -163,6 +163,5 @@ body
 .control-button:hover
 {
     background-color: var(--secondary-accent-color);
-    border-color: var(--control-border-hover);
-    color: var(--button-color-hovered);
+
 }
