@@ -13,7 +13,6 @@
     --secondary-accent-color: #8B7CFF;
     --control-button-color: #8B7CFF4D;
     --control-button-border: #8B7CFF4D;
-    --control-border-hover: #F1EFFF4D;
     --highlight-color: #A9E8FF;
 }
 
@@ -132,7 +131,6 @@ body
     flex-direction: column;
     padding-top: 5rem;
     gap: 48px;
-    color: var(--secondary-text-color);
 }
 
 .controls
@@ -141,12 +139,6 @@ body
     flex-direction: column;
     gap: 3rem;
     text-align: center;
-    padding-top: 1vh;
-}
-
-.controls h2
-{
-    font-size: 3rem;
 }
 
 .control-buttons
@@ -159,17 +151,7 @@ body
 {
     background-color: var(--control-button-color);
     border-style: solid;
-    color: var(--secondary-text-color);
-    font-size: 2rem;
     border-color: var(--control-button-border);
-    width: 20vw;
-    height: 3.5vw;
-    border-radius: 15px;
-}
-
-.control-button:hover
-{
-    background-color: var(--secondary-accent-color);
-    border-color: var(--control-border-hover);
-    color: var(--button-color-hovered);
+    width: 25vw;
+    height: 4vw;
 }
