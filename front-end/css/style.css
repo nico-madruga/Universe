@@ -141,6 +141,12 @@ body
     flex-direction: column;
     gap: 3rem;
     text-align: center;
+    padding-top: 1vh;
+}
+
+.controls h2
+{
+    font-size: 3rem;
 }
 
 .control-buttons
@@ -154,10 +160,11 @@ body
     background-color: var(--control-button-color);
     border-style: solid;
     color: var(--secondary-text-color);
-    font-size: 2.5rem;
+    font-size: 2rem;
     border-color: var(--control-button-border);
-    width: 25vw;
-    height: 4vw;
+    width: 20vw;
+    height: 3.5vw;
+    border-radius: 15px;
 }
 
 .control-button:hover
