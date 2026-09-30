@@ -1,7 +1,7 @@
 :root
 {
     --background-color: #101624;
-    --backgroundf-color: #101624AF;
+    --backgroundf-color: #101624BF;
     --planet-background-color: #080B14;
     --button-color: #2222224D;
     --button-border-color-hovered: #222222;
@@ -194,11 +194,7 @@ body
 
 #pop-up-content
 {
-    display: flex;
-    justify-content: center;
-    align-items: center;
     background-color: var(--background-color);
-    border: 2px solid var(--panel-borders-color);
-    width: 60vw;
-    height: 65vh;
+    width: 50vw;
+    height: 25vh;
 }

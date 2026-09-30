@@ -9,6 +9,12 @@ const galaxiesButton = document.querySelector("#galaxies-button");
 starsButton.addEventListener("click", () => {
     popup.classList.add("open");
     popupContent.textContent = "Hello Stars!";
+    document.addEventListener("click", (event) => {
+    if(!popupContent.contains(event.target))
+    {
+        popup.classList.remove("open");
+    }
+})
 })
 
 planetsButton.addEventListener("click", () => {
@@ -29,9 +35,3 @@ galaxiesButton.addEventListener("click", () => {
     popupContent.textContent = "Hello Galaxies!";
 })
 
-document.addEventListener("click", (event) => {
-    if(!popup.contains(event.target))
-    {
-        popup.classList.remove("open");
-    }
-})

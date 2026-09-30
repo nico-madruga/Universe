@@ -29,9 +29,4 @@ galaxiesButton.addEventListener("click", () => {
     popupContent.textContent = "Hello Galaxies!";
 })
 
-document.addEventListener("click", (event) => {
-    if(!popup.contains(event.target))
-    {
-        popup.classList.remove("open");
-    }
-})
+document.addEventListener("click", ())

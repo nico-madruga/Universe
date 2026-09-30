@@ -199,6 +199,6 @@ body
     align-items: center;
     background-color: var(--background-color);
     border: 2px solid var(--panel-borders-color);
-    width: 60vw;
-    height: 65vh;
+    width: 50vw;
+    height: 25vh;
 }
