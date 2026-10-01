@@ -1,0 +1,192 @@
+:root
+{
+    --background-color: #101624;
+    --backgroundf-color: #101624BF;
+    --planet-background-color: #080B14;
+    --button-color: #2222224D;
+    --button-border-color-hovered: #222222;
+    --button-color-hovered: #263149BF;
+    --panels-color: #101624;
+    --panel-borders-color: #263149;
+    --main-text-color: #E8ECF4;
+    --secondary-text-color: #9AA6BA;
+    --primary-accent-color: #4CC9F0;
+    --secondary-accent-color: #8B7CFF;
+    --control-button-color: #8B7CFF4D;
+    --control-button-border: #8B7CFF4D;
+    --control-border-hover: #F1EFFF4D;
+    --highlight-color: #A9E8FF;
+}
+
+*
+{
+ padding: 0;
+ margin: 0;
+ color: white;
+ font-family: 'JetBrains Mono';
+}
+
+header
+{
+    display: flex;
+    padding: 1vh 0;
+    background-color: var(--background-color);
+    flex-direction: row-reverse;
+    justify-content: space-evenly;
+    border-bottom: 2px solid var(--panel-borders-color);
+}
+
+header input
+{
+    align-self: center;
+    height: 2rem;
+}
+
+body
+{
+    background-color: var(--background-color);
+}
+
+.layout
+{
+    display: flex;
+    justify-content: space-between;
+    background-color: var(--planet-background-color);
+}
+
+.layout .sidebar
+{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    width: 18vw;
+    height: 66vh;
+    border: 2px solid var(--panel-borders-color);
+    background-color: var(--panels-color);
+}
+
+.sidebar h2
+{
+    padding: 3vh;
+    font-size: 2.9rem;
+    font-style: normal;
+}
+
+.sidebar nav
+{
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+    padding-top: 4.8rem;
+}
+
+.standard_button
+{
+    align-self: center;
+    width: 15vw;
+    height: 5vh;
+    background-color: var(--button-color);
+    border: 1px solid var(--panel-borders-color);
+    border-style: solid;
+    color: var(--secondary-text-color);
+    border-radius: 10px;
+}
+
+.standard_button:hover
+{
+    border: 1px solid var(--button-border-color-hovered);
+    background-color: var(--button-color-hovered);
+    color: var(--secondary-accent-color)
+}
+
+.content
+{
+    display: flex;
+}
+
+.content .space
+{
+    background-color: var(--planet-background-color);
+    width: 100%;
+}
+
+.layout .object-info
+{
+    display: flex;
+    flex-direction: column;
+    padding-top: 2.4rem;
+    text-align: center;
+    gap: 48px;
+    width: 18vw;
+    border: 2px solid var(--panel-borders-color);
+    background-color: var(--panels-color);
+}
+
+.layout .object-info h2
+{
+    font-size: 2.9rem;
+}
+
+.layout .object-info .info-grid
+{
+    display: flex;
+    flex-direction: column;
+    padding-top: 5rem;
+    gap: 48px;
+    color: var(--secondary-text-color);
+}
+
+.controls
+{
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    text-align: center;
+    padding-top: 1vh;
+}
+
+.controls h2
+{
+    font-size: 3rem;
+}
+
+.control-buttons
+{
+    display: flex;
+    justify-content: space-around;
+}
+
+.control-button
+{
+    background-color: var(--control-button-color);
+    border-style: solid;
+    color: var(--secondary-text-color);
+    font-size: 2rem;
+    border-color: var(--control-button-border);
+    width: 20vw;
+    height: 3.5vw;
+    border-radius: 15px;
+}
+
+.control-button:hover
+{
+    background-color: var(--secondary-accent-color);
+    border-color: var(--control-border-hover);
+    color: var(--button-color-hovered);
+}
+
+#pop-up
+{
+    display: none;
+}
+
+#pop-up.open
+{
+    display: block;
+    position: fixed;
+    background-color: var(--backgroundf-color);
+    width: 100vw;
+    height: 100vh;
+    top: 50%;
+    left: 50%;
+}
