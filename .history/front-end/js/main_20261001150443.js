@@ -31,7 +31,7 @@ galaxiesButton.addEventListener("click", () => {
 })
 
 document.addEventListener("click", (event) => {
-    if(event.target === popup)
+    if(!document.contains(event) && !document.contains(popupContent))
     {
         popup.classList.remove("open");
     }

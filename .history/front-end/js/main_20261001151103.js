@@ -36,3 +36,8 @@ document.addEventListener("click", (event) => {
         popup.classList.remove("open");
     }
 })
+
+document.addEventListener("click", (event) => 
+{
+    console.log(event.target);
+})

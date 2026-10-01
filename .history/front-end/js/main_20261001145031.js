@@ -1,6 +1,5 @@
 const popup = document.querySelector("#pop-up");
-const popupContent = document.querySelector("#pop-up-content");
-const standardButtons = document.querySelector(".standard_button");
+const popupContent = document.querySelector("#pop-up #pop-up-content");
 const starsButton = document.querySelector("#stars-button");
 const planetsButton = document.querySelector("#planets-button");
 const systemsButton = document.querySelector("#systems-button");
@@ -31,7 +30,7 @@ galaxiesButton.addEventListener("click", () => {
 })
 
 document.addEventListener("click", (event) => {
-    if(event.target === popup)
+    if(!popupContent.contains(event.target))
     {
         popup.classList.remove("open");
     }
