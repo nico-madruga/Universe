@@ -1,0 +1,2 @@
+const starButton = document.querySelector("#stars-button");
+
