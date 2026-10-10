@@ -16,7 +16,7 @@ import br.com.project.universe.dto.StarRequestDTO;
 import br.com.project.universe.service.StarService;
 
 @RestController
-@RequestMapping("/v1/universe/star")
+@RequestMapping("/v1/universe/stars")
 public class StarController 
 {
     StarService starS;
