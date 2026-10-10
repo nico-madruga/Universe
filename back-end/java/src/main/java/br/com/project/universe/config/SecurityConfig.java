@@ -14,7 +14,7 @@ public class SecurityConfig
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception
     {
         http.authorizeHttpRequests(auth -> auth
-            .requestMatchers(HttpMethod.GET, "/v1/universe/stars", "/stars/**").permitAll()
+            .requestMatchers(HttpMethod.GET, "/v1/universe/stars", "/v1/universe/stars/**").permitAll()
         .anyRequest().authenticated())
         .httpBasic(Customizer.withDefaults());
 
