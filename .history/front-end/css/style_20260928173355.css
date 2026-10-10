@@ -1,0 +1,86 @@
+:root
+{
+    --background-color: #101624;
+    --planet-background-color: #080B14;
+    --button-color: #2222224D;
+    --button-color-hovered: #222222;
+    --panels-color: #101624;
+    --panel-borders-color: #263149;
+    --main-text-color: #E8ECF4;
+    --secondary-text-color: #9AA6BA;
+    --primary-accent-color: #4CC9F0;
+    --secondary-accent-color: #8B7CFF;
+    --highlight-color: #A9E8FF;
+}
+
+*
+{
+ padding: 0;
+ margin: 0;
+ color: white;
+ font-family: 'JetBrains Mono';
+}
+
+header
+{
+    display: flex;
+    padding: 1vh 0;
+    background-color: var(--background-color);
+    flex-direction: row-reverse;
+    justify-content: space-evenly;
+    border-bottom: 2px solid var(--panel-borders-color);
+}
+
+header input
+{
+    align-self: center;
+    height: 2rem;
+}
+
+body
+{
+    background-color: var(--background-color);
+}
+
+.layout .sidebar
+{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    width: 18vw;
+    height: 66vh;
+    border: 2px solid var(--panel-borders-color);
+}
+
+.sidebar h2
+{
+    padding: 3vh;
+    font-size: 2.9rem;
+    font-style: normal;
+}
+
+.sidebar nav
+{
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+    padding-top: 4.8rem;
+}
+
+.standard_button
+{
+    align-self: center;
+    width: 15vw;
+    height: 5vh;
+    background-color: var(--button-color);
+    border: 1px solid var(--panel-borders-color);
+    border-style: solid;
+    color: var(--secondary-text-color);
+    border-radius: 10px;
+}
+
+.standard_button:hover
+{
+    border: 1px solid var(--button-color);
+    background-color: var(--button-color-hovered);
+}
