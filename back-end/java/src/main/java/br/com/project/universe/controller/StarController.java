@@ -12,10 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.List;
-
 import br.com.project.universe.dto.StarRequestDTO;
-import br.com.project.universe.dto.StarResponseDTO;
 import br.com.project.universe.service.StarService;
 
 @RestController
@@ -29,46 +26,44 @@ public class StarController
         this.starS = starS;
     }
 
-    @PostMapping()
+    @PostMapping("/create")
     public ResponseEntity createStar(@RequestBody StarRequestDTO newStar)
     {
         starS.createStar(newStar);
         return ResponseEntity.ok("Star was successfully created");
     }
 
-    @GetMapping
-    public ResponseEntity<List<StarResponseDTO>> listStars()
+    @GetMapping("/checkout/all")
+    public ResponseEntity listStars() //must return a ResponseEntity<List<Stars>>
     {
-        List<StarResponseDTO> stars = starS.listStars();
-
-        return ResponseEntity.ok(stars);
+        return ResponseEntity.ok("s"); //just so it isn't red
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/checkout/{id}")
     public ResponseEntity listStarsByID(@PathVariable Long id) //must return a ResponseEntity<Star>
     {
         return ResponseEntity.ok("s"); //just so it isn't red
     }
 
-    @GetMapping("/name")
+    @GetMapping("/checkout")
     public ResponseEntity listStarsByName(@RequestParam String name) //must return a ResponseEntity<Star>
     {
         return ResponseEntity.ok("s"); //just so it isn't red
     }
 
-    @PutMapping("/{id}")
+    @PutMapping("/update/{id}")
     public ResponseEntity updateStarFully(@PathVariable Long id) //must return a confirmation message
     {
         return ResponseEntity.ok("s"); //just so it isn't red
     }
 
-    @PatchMapping("/{id}")
+    @PatchMapping("/update/{id}")
     public ResponseEntity updateStarParcially(@PathVariable Long id) //must return a confirmation message
     {
         return ResponseEntity.ok("s"); //just so it isn't red
     }
 
-    @DeleteMapping("/id")
+    @DeleteMapping("/remove/id")
     public ResponseEntity removeStar(@PathVariable Long id) //must return a confirmation message
     {
         return ResponseEntity.ok("s"); //just so it isn't red
