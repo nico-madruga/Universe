@@ -19,7 +19,7 @@ import br.com.project.universe.dto.StarResponseDTO;
 import br.com.project.universe.service.StarService;
 
 @RestController
-@RequestMapping("/v1/universe/star")
+@RequestMapping("/v1/universe/stars")
 public class StarController 
 {
     StarService starS;
@@ -29,14 +29,14 @@ public class StarController
         this.starS = starS;
     }
 
-    @PostMapping("/create")
+    @PostMapping()
     public ResponseEntity createStar(@RequestBody StarRequestDTO newStar)
     {
         starS.createStar(newStar);
         return ResponseEntity.ok("Star was successfully created");
     }
 
-    @GetMapping("/checkout/all")
+    @GetMapping
     public ResponseEntity<List<StarResponseDTO>> listStars()
     {
         List<StarResponseDTO> stars = starS.listStars();
@@ -44,31 +44,31 @@ public class StarController
         return ResponseEntity.ok(stars);
     }
 
-    @GetMapping("/checkout/{id}")
+    @GetMapping("/{id}")
     public ResponseEntity listStarsByID(@PathVariable Long id) //must return a ResponseEntity<Star>
     {
         return ResponseEntity.ok("s"); //just so it isn't red
     }
 
-    @GetMapping("/checkout")
+    @GetMapping("/name")
     public ResponseEntity listStarsByName(@RequestParam String name) //must return a ResponseEntity<Star>
     {
         return ResponseEntity.ok("s"); //just so it isn't red
     }
 
-    @PutMapping("/update/{id}")
+    @PutMapping("/{id}")
     public ResponseEntity updateStarFully(@PathVariable Long id) //must return a confirmation message
     {
         return ResponseEntity.ok("s"); //just so it isn't red
     }
 
-    @PatchMapping("/update/{id}")
+    @PatchMapping("/{id}")
     public ResponseEntity updateStarParcially(@PathVariable Long id) //must return a confirmation message
     {
         return ResponseEntity.ok("s"); //just so it isn't red
     }
 
-    @DeleteMapping("/remove/id")
+    @DeleteMapping("/id")
     public ResponseEntity removeStar(@PathVariable Long id) //must return a confirmation message
     {
         return ResponseEntity.ok("s"); //just so it isn't red
