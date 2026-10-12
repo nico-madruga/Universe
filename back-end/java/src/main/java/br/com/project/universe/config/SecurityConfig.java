@@ -13,8 +13,9 @@ public class SecurityConfig
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception
     {
-        http.authorizeHttpRequests(auth -> auth
+http.authorizeHttpRequests(auth -> auth
             .requestMatchers(HttpMethod.GET, "/v1/universe/stars", "/v1/universe/stars/**").permitAll()
+            .requestMatchers(HttpMethod.DELETE, "/v1/universe/stars").hasRole("ADMIN")
         .anyRequest().authenticated())
         .httpBasic(Customizer.withDefaults());
 
