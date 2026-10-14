@@ -1,17 +1,19 @@
 package br.com.project.universe.config;
 
 import org.springframework.context.annotation.Configuration;
+import org.springframework.boot.actuate.endpoint.Operation;
 import org.springframework.context.annotation.Bean;
 import org.springframework.http.HttpMethod;
 import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.web.SecurityFilterChain;
 
+
 @Configuration 
 public class SecurityConfig 
 {
     @Bean
-    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception
+    public SecurityFilterChain securityFilterChain(HttpSecurity http)
     {
 http.authorizeHttpRequests(auth -> auth
             .requestMatchers(HttpMethod.GET, "/v1/universe/stars", "/v1/universe/stars/**").permitAll()
