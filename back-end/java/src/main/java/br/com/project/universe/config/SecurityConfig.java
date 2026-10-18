@@ -24,6 +24,7 @@ public class SecurityConfig
         http.csrf(csrf -> csrf.disable())
         .authorizeHttpRequests(auth -> auth
             .requestMatchers(HttpMethod.GET, "/v1/universe/stars", "/v1/universe/stars/**").permitAll()
+            .requestMatchers(HttpMethod.POST, "/v1/universe/stars", "/v1/universe/stars/**").permitAll()
         .requestMatchers(HttpMethod.DELETE, "/v1/universe/**").hasRole("ADMIN"))
         .httpBasic(Customizer.withDefaults());
 

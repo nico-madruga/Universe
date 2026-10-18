@@ -29,14 +29,14 @@ public class StarController
         this.starS = starS;
     }
 
-    @PostMapping("/create")
+    @PostMapping
     public ResponseEntity<StarResponseDTO> createStar(@Valid @RequestBody StarRequestDTO newStarInfo)
     {
         StarResponseDTO newStar = starS.createStar(newStarInfo);
         return ResponseEntity.ok(newStar);
     }
 
-    @GetMapping()
+    @GetMapping
     public ResponseEntity listStars() //must return a ResponseEntity<List<Stars>>
     {
         return ResponseEntity.ok("this ain't implemented yet or not updated dummy"); //just so it isn't red
