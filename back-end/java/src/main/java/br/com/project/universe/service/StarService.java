@@ -1,6 +1,9 @@
 package br.com.project.universe.service;
 
 import org.springframework.stereotype.Service;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Page;
+
 import java.util.List;
 
 import br.com.project.universe.entity.Star;
@@ -29,11 +32,9 @@ public class StarService
         return starMap.toDTO(star);
     }
 
-    public List<StarResponseDTO> listStars()
+    public Page<StarResponseDTO> listStars(Pageable pageable)
     {
-        List<Star> stars = starRepo.findAll();
-
-        return starMap.toListDTO(stars);
+        return starRepo.findAll(pageable).map(starMap::toDTO);
     }
 
 }

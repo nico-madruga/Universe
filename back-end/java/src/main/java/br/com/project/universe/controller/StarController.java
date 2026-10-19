@@ -12,6 +12,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import org.springframework.data.web.PageableDefault;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Page;
+
+import org.hibernate.annotations.Parameter;
+
 import br.com.project.universe.dto.StarRequestDTO;
 import br.com.project.universe.dto.StarResponseDTO;
 import br.com.project.universe.entity.Star;
@@ -37,9 +43,11 @@ public class StarController
     }
 
     @GetMapping
-    public ResponseEntity listStars() //must return a ResponseEntity<List<Stars>>
+    public ResponseEntity<Page<StarResponseDTO>> listStars(@PageableDefault(page = 0, size = 10) Pageable pageable)
     {
-        return ResponseEntity.ok("this ain't implemented yet or not updated dummy"); //just so it isn't red
+        Page<StarResponseDTO> stars = starS.listStars(pageable);
+
+        return ResponseEntity.ok(stars);
     }
 
     @GetMapping("/{id}")
