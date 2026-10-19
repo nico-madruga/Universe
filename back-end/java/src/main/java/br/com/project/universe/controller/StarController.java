@@ -13,7 +13,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.project.universe.dto.StarRequestDTO;
+import br.com.project.universe.dto.StarResponseDTO;
+import br.com.project.universe.entity.Star;
 import br.com.project.universe.service.StarService;
+import jakarta.validation.Valid;
 
 @RestController
 @RequestMapping("/v1/universe/stars")
@@ -26,46 +29,46 @@ public class StarController
         this.starS = starS;
     }
 
-    @PostMapping("/create")
-    public ResponseEntity createStar(@RequestBody StarRequestDTO newStar)
+    @PostMapping
+    public ResponseEntity<StarResponseDTO> createStar(@Valid @RequestBody StarRequestDTO newStarInfo)
     {
-        starS.createStar(newStar);
-        return ResponseEntity.ok("Star was successfully created");
+        StarResponseDTO newStar = starS.createStar(newStarInfo);
+        return ResponseEntity.ok(newStar);
     }
 
-    @GetMapping("/checkout/all")
+    @GetMapping
     public ResponseEntity listStars() //must return a ResponseEntity<List<Stars>>
     {
-        return ResponseEntity.ok("s"); //just so it isn't red
+        return ResponseEntity.ok("this ain't implemented yet or not updated dummy"); //just so it isn't red
     }
 
-    @GetMapping("/checkout/{id}")
+    @GetMapping("/{id}")
     public ResponseEntity listStarsByID(@PathVariable Long id) //must return a ResponseEntity<Star>
     {
-        return ResponseEntity.ok("s"); //just so it isn't red
+        return ResponseEntity.ok("this ain't implemented yet or not updated dummy"); //just so it isn't red
     }
 
-    @GetMapping("/checkout")
-    public ResponseEntity listStarsByName(@RequestParam String name) //must return a ResponseEntity<Star>
+    @GetMapping("/name")
+    public ResponseEntity listStarsByName(@RequestParam(required = true) String name) //must return a ResponseEntity<Star>
     {
-        return ResponseEntity.ok("s"); //just so it isn't red
+        return ResponseEntity.ok("this ain't implemented yet or not updated dummy"); //just so it isn't red
     }
 
-    @PutMapping("/update/{id}")
+    @PutMapping("/{id}")
     public ResponseEntity updateStarFully(@PathVariable Long id) //must return a confirmation message
     {
-        return ResponseEntity.ok("s"); //just so it isn't red
+        return ResponseEntity.ok("this ain't implemented yet or not updated dummy"); //just so it isn't red
     }
 
     @PatchMapping("/update/{id}")
     public ResponseEntity updateStarParcially(@PathVariable Long id) //must return a confirmation message
     {
-        return ResponseEntity.ok("s"); //just so it isn't red
+        return ResponseEntity.ok("this ain't implemented yet or not updated dummy"); //just so it isn't red
     }
 
-    @DeleteMapping("/remove/id")
+    @DeleteMapping("/{id}")
     public ResponseEntity removeStar(@PathVariable Long id) //must return a confirmation message
     {
-        return ResponseEntity.ok("s"); //just so it isn't red
+        return ResponseEntity.ok("this ain't implemented yet or not updated dummy"); //just so it isn't red
     }
 }

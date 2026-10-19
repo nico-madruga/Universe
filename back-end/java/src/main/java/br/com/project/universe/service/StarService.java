@@ -22,11 +22,11 @@ public class StarService
         this.starMap = starMap;
     }
 
-    public void createStar(StarRequestDTO newStar)
+    public StarResponseDTO createStar(StarRequestDTO newStar)
     {
         Star star = starMap.toEntity(newStar);
-
         starRepo.save(star);
+        return starMap.toDTO(star);
     }
 
     public List<StarResponseDTO> listStars()
