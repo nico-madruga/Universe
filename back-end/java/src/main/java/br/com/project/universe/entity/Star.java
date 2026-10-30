@@ -1,5 +1,7 @@
 package br.com.project.universe.entity;
 
+import java.util.UUID;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -18,8 +20,8 @@ import lombok.ToString;
 public class Star 
 {
     @Id 
-    @GeneratedValue (strategy = GenerationType.IDENTITY)
-    private Long id;
+    @GeneratedValue (strategy = GenerationType.UUID)
+    private UUID id;
 
     @Column (name = "name")
     private String name;

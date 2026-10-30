@@ -4,9 +4,11 @@ import org.springframework.stereotype.Service;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Page;
 
-import java.util.List;
+import java.util.UUID;
+import java.util.Optional;
 
 import br.com.project.universe.entity.Star;
+import br.com.project.universe.exception.StarNotFoundException;
 import br.com.project.universe.dto.StarRequestDTO;
 import br.com.project.universe.dto.StarResponseDTO;
 import br.com.project.universe.mapper.StarMapper;
@@ -35,6 +37,13 @@ public class StarService
     public Page<StarResponseDTO> listStars(Pageable pageable)
     {
         return starRepo.findAll(pageable).map(starMap::toDTO);
+    }
+
+    public StarResponseDTO findStarById(UUID id)
+    {
+        Star findStar = starRepo.findByUUID(id).orElseThrow(() -> new StarNotFoundException("Star with the provided ID wasn't found"));
+
+        return starMap.toDTO(findStar);
     }
 
 }
