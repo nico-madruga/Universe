@@ -97,11 +97,20 @@ public class StarController
         return ResponseEntity.ok(starFound);
     }
 
+    @Operation(summary = "Finds a star by its name",
+        responses = {
+            @ApiResponse (responseCode = "200", description = "Star was found"),
+            @ApiResponse (responseCode = "404", description = "Star wasn't found", content = @Content)
+        }
+    )
+    @Parameter(description = "The desired star name")
     @GetMapping("/{name}")
-    public ResponseEntity listStarsByName(@RequestParam(required = true) String name) //must return a ResponseEntity<Star>
+    public ResponseEntity<StarResponseDTO> listStarsByName(@RequestParam(required = true) String name)
     {
-        return ResponseEntity.ok("this ain't implemented yet or not updated dummy"); //just so it isn't red
-    }
+        StarResponseDTO starFound = starS.findStarsByName(name);
+
+        return ResponseEntity.ok(starFound);
+    } 
 
     @PutMapping("/{id}")
     public ResponseEntity updateStarFully(@PathVariable Long id) //must return a confirmation message
