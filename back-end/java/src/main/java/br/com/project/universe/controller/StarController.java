@@ -120,23 +120,28 @@ public class StarController
     )
     @Parameter(description = "The JSON provided by the user")
     @PutMapping("/{id}")
-    public ResponseEntity<String> updateStarFully(@PathVariable UUID id, @RequestBody StarRequestDTO request)
+    public ResponseEntity<String> updateStarFully(@PathVariable UUID id, @Valid @RequestBody StarRequestDTO request)
     {
         starS.updateStarFully(id, request);
 
-        return ResponseEntity.ok("The object was updated successfully!");
+        return ResponseEntity.ok("The star was updated successfully!");
     }
 
     @PatchMapping("/update/{id}")
-    public ResponseEntity<String> updateStarParcially(@PathVariable UUID id, @RequestBody StarPatchDTO request) //must return a confirmation message
+    public ResponseEntity<String> updateStarParcially(@PathVariable UUID id, @Valid @RequestBody StarPatchDTO request) //must return a confirmation message
     {
-        starS.updateStarPartially(id, request);
+        boolean changed = starS.updateStarPartially(id, request);
 
-        return ResponseEntity.ok("this ain't implemented yet or not updated dummy");
+        if(!changed)
+        {
+            return ResponseEntity.ok("No changes were made");
+        }
+
+        return ResponseEntity.ok("The star was updated successfully!");
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity removeStar(@PathVariable UUID id) //must return a confirmation message
+    public ResponseEntity<String> removeStar(@PathVariable UUID id) //must return a confirmation message
     {
         return ResponseEntity.ok("this ain't implemented yet or not updated dummy"); //just so it isn't red
     }

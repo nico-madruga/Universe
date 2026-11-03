@@ -75,23 +75,30 @@ public class StarService
     }
 
     @Transactional
-    public void updateStarPartially(UUID id, StarPatchDTO request)
+    public boolean updateStarPartially(UUID id, StarPatchDTO request)
     {
         Star findStar = starRepo.findById(id).orElseThrow(() -> new StarNotFoundException("Star wasn't found"));
+
+        boolean changed = false;
 
         if(request.mass() != null)
         {
             findStar.setMass(request.mass());
+            changed = true;
         }
 
         if(request.name() != null)
         {
             findStar.setName(request.name());
+            changed = true;
         }
 
         if(request.temperature() != null)
         {
             findStar.setTemperature(request.temperature());
+            changed = true;
         }
+
+        return changed;
     }
 }
