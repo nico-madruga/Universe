@@ -21,14 +21,13 @@ import java.util.UUID;
 
 import br.com.project.universe.dto.StarRequestDTO;
 import br.com.project.universe.dto.StarResponseDTO;
+import br.com.project.universe.entity.Star;
 import br.com.project.universe.service.StarService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
-import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
-import jakarta.persistence.Access;
 import jakarta.validation.Valid;
 
 /**
@@ -104,7 +103,7 @@ public class StarController
         }
     )
     @Parameter(description = "The desired star name")
-    @GetMapping("/{name}")
+    @GetMapping("/search")
     public ResponseEntity<StarResponseDTO> listStarsByName(@RequestParam(required = true) String name)
     {
         StarResponseDTO starFound = starS.findStarsByName(name);
@@ -113,19 +112,21 @@ public class StarController
     } 
 
     @PutMapping("/{id}")
-    public ResponseEntity updateStarFully(@PathVariable Long id) //must return a confirmation message
+    public ResponseEntity<String> updateStarFully(@PathVariable UUID id, @RequestBody StarRequestDTO request) //must return a confirmation message
     {
-        return ResponseEntity.ok("this ain't implemented yet or not updated dummy"); //just so it isn't red
+        starS.updateStarFully(id, request);
+
+        return ResponseEntity.ok("The object was updated successfully!"); //just so it isn't red
     }
 
     @PatchMapping("/update/{id}")
-    public ResponseEntity updateStarParcially(@PathVariable Long id) //must return a confirmation message
+    public ResponseEntity updateStarParcially(@PathVariable UUID id) //must return a confirmation message
     {
         return ResponseEntity.ok("this ain't implemented yet or not updated dummy"); //just so it isn't red
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity removeStar(@PathVariable Long id) //must return a confirmation message
+    public ResponseEntity removeStar(@PathVariable UUID id) //must return a confirmation message
     {
         return ResponseEntity.ok("this ain't implemented yet or not updated dummy"); //just so it isn't red
     }

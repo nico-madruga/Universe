@@ -14,6 +14,7 @@ import br.com.project.universe.dto.StarRequestDTO;
 import br.com.project.universe.dto.StarResponseDTO;
 import br.com.project.universe.mapper.StarMapper;
 import br.com.project.universe.repository.StarRepository;
+import jakarta.transaction.Transactional;
 
 /**
  * The class responsible for business rules of stars
@@ -39,6 +40,7 @@ public class StarService
         this.starMap = starMap;
     }
 
+    @Transactional
     public StarResponseDTO createStar(StarRequestDTO newStar)
     {
         Star star = starMap.toEntity(newStar);
@@ -53,18 +55,23 @@ public class StarService
 
     public StarResponseDTO findStarById(UUID id)
     {
-        Star findStar = starRepo.findByUUID(id).orElseThrow(() -> new StarNotFoundException("Star with the provided ID wasn't found"));
+        Star findStar = starRepo.findById(id).orElseThrow(() -> new StarNotFoundException("Star with the provided ID wasn't found"));
 
         return starMap.toDTO(findStar);
     }
 
     public StarResponseDTO findStarsByName(String name)
     {
-        if(starRepo.existsByNameIgnoreCase(name))
-        {
-            throw new StarAlreadyExistsException("Star with the name " + name + " already exists");
-        }
-
         return starMap.toDTO(starRepo.findStarsByName(name).orElseThrow(() -> new StarNotFoundException("Star with the name " + name + "wasn't found")));
+    }
+
+    @Transactional
+    public void updateStarFully(UUID id, StarRequestDTO request)
+    {
+        Star findStar = starRepo.findById(id).orElseThrow(() -> new StarNotFoundException("Star wasn't found"));
+
+        findStar.setMass(request.mass());
+        findStar.setName(request.name());
+        findStar.setTemperature(request.temperature());
     }
 }

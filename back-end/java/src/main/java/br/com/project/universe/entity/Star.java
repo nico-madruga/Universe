@@ -23,13 +23,13 @@ public class Star
     @GeneratedValue (strategy = GenerationType.UUID)
     private UUID id;
 
-    @Column (name = "name")
+    @Column (name = "name", nullable = false)
     private String name;
 
-    @Column (name = "mass")
+    @Column (name = "mass", nullable = false)
     private double mass;
 
-    @Column(name = "temperature")
+    @Column(name = "temperature", nullable = false)
     private double temperature;
 
     public Star(String name, double mass, double temperature)
