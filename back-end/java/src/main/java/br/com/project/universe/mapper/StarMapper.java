@@ -1,6 +1,8 @@
 package br.com.project.universe.mapper;
 
 import java.util.List;
+import java.util.UUID;
+
 
 import org.springframework.stereotype.Component;
 
@@ -24,6 +26,7 @@ public class StarMapper
     public StarResponseDTO toDTO(Star star)
     {
         StarResponseDTO starResponse = new StarResponseDTO(
+            star.getId(),
             star.getName(),
             star.getMass(),
             star.getTemperature());

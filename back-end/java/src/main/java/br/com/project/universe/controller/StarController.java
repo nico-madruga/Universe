@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import org.springframework.data.web.PageableDefault;
@@ -22,7 +21,6 @@ import java.util.UUID;
 import br.com.project.universe.dto.StarPatchDTO;
 import br.com.project.universe.dto.StarRequestDTO;
 import br.com.project.universe.dto.StarResponseDTO;
-import br.com.project.universe.entity.Star;
 import br.com.project.universe.service.StarService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
@@ -135,7 +133,6 @@ public class StarController
         }
     )
     @Parameter(description = "The JSON provided by the user")
-    @PutMapping("/{id}")
     @PatchMapping("/update/{id}")
     public ResponseEntity<String> updateStarParcially(@PathVariable UUID id, @Valid @RequestBody StarPatchDTO request) //must return a confirmation message
     {
@@ -156,10 +153,10 @@ public class StarController
         }
     )
     @DeleteMapping("/{id}")
-    public ResponseEntity<String> removeStar(@PathVariable UUID id) //must return a confirmation message
+    public ResponseEntity<String> removeStar(@PathVariable UUID id)
     {
         starS.deleteStar(id);
 
-        return ResponseEntity.ok("this ain't implemented yet or not updated dummy"); //just so it isn't red
+        return ResponseEntity.ok("Star deleted successfully!");
     }
 }

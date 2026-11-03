@@ -23,9 +23,11 @@ public class SecurityConfig
 
         http.csrf(csrf -> csrf.disable())
         .authorizeHttpRequests(auth -> auth
-            .requestMatchers(HttpMethod.GET, "/v1/universe/stars", "/v1/universe/stars/**").permitAll()
+            .requestMatchers(HttpMethod.GET, "/v1/universe/**").permitAll()
         .requestMatchers(HttpMethod.DELETE, "/v1/universe/**").hasRole("ADMIN")
-        .requestMatchers(HttpMethod.POST, "/v1/universe/**").authenticated())
+        .requestMatchers(HttpMethod.POST, "/v1/universe/**").authenticated()
+        .requestMatchers(HttpMethod.PUT, "/v1/universe/**").authenticated()
+        .requestMatchers(HttpMethod.PATCH, "/v1/universe/**").authenticated())
         .httpBasic(Customizer.withDefaults());
 
         return http.build();
@@ -35,7 +37,7 @@ public class SecurityConfig
     public UserDetailsService userDetails() 
     {
         UserDetails admin = User.withUsername("admin")
-        .password("{noop}admin132")
+        .password("{noop}admin123")
         .roles("ADMIN")
         .build();
 
