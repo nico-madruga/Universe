@@ -25,7 +25,7 @@ public class SecurityConfig
         .authorizeHttpRequests(auth -> auth
             .requestMatchers(HttpMethod.GET, "/v1/universe/stars", "/v1/universe/stars/**").permitAll()
         .requestMatchers(HttpMethod.DELETE, "/v1/universe/**").hasRole("ADMIN")
-    .requestMatchers(HttpMethod.POST, "/v1/universe/**").authenticated())
+        .requestMatchers(HttpMethod.POST, "/v1/universe/**").authenticated())
         .httpBasic(Customizer.withDefaults());
 
         return http.build();

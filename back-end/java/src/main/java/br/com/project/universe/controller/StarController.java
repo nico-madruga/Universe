@@ -127,6 +127,15 @@ public class StarController
         return ResponseEntity.ok("The star was updated successfully!");
     }
 
+    @Operation(summary = "Update all Star information",
+        responses = {
+            @ApiResponse (responseCode = "200" , description = "Star was updated"),
+            @ApiResponse (responseCode = "200" , description = "Stars information wasn't changed"),
+            @ApiResponse (responseCode = "404", description = "Star wasn't found", content = @Content)
+        }
+    )
+    @Parameter(description = "The JSON provided by the user")
+    @PutMapping("/{id}")
     @PatchMapping("/update/{id}")
     public ResponseEntity<String> updateStarParcially(@PathVariable UUID id, @Valid @RequestBody StarPatchDTO request) //must return a confirmation message
     {
@@ -140,9 +149,17 @@ public class StarController
         return ResponseEntity.ok("The star was updated successfully!");
     }
 
+    @Operation(summary = "Deletes a star",
+        responses = {
+            @ApiResponse(responseCode = "204", description = "Star was deleted successfully"),
+            @ApiResponse(responseCode = "404", description = "Star wasn't found")
+        }
+    )
     @DeleteMapping("/{id}")
     public ResponseEntity<String> removeStar(@PathVariable UUID id) //must return a confirmation message
     {
+        starS.deleteStar(id);
+
         return ResponseEntity.ok("this ain't implemented yet or not updated dummy"); //just so it isn't red
     }
 }
