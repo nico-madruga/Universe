@@ -8,6 +8,7 @@ import java.util.UUID;
 
 import br.com.project.universe.entity.Star;
 import br.com.project.universe.exception.StarNotFoundException;
+import br.com.project.universe.dto.StarPatchDTO;
 import br.com.project.universe.dto.StarRequestDTO;
 import br.com.project.universe.dto.StarResponseDTO;
 import br.com.project.universe.mapper.StarMapper;
@@ -71,5 +72,26 @@ public class StarService
         findStar.setMass(request.mass());
         findStar.setName(request.name());
         findStar.setTemperature(request.temperature());
+    }
+
+    @Transactional
+    public void updateStarPartially(UUID id, StarPatchDTO request)
+    {
+        Star findStar = starRepo.findById(id).orElseThrow(() -> new StarNotFoundException("Star wasn't found"));
+
+        if(request.mass() != null)
+        {
+            findStar.setMass(request.mass());
+        }
+
+        if(request.name() != null)
+        {
+            findStar.setName(request.name());
+        }
+
+        if(request.temperature() != null)
+        {
+            findStar.setTemperature(request.temperature());
+        }
     }
 }

@@ -13,10 +13,10 @@ public record StarRequestDTO (
 
     @NotNull(message = "mass cannot be empty")
     @Positive(message = "The mass of a star must be positive")
-    double mass,
+    Double mass,
 
     @NotNull(message = "mass cannot be empty")
-    double temperature
+    Double temperature
 )
 {
 
