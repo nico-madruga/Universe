@@ -111,12 +111,19 @@ public class StarController
         return ResponseEntity.ok(starFound);
     } 
 
+    @Operation(summary = "Update all Star information",
+        responses = {
+            @ApiResponse (responseCode = "200" , description = "Star was updated"),
+            @ApiResponse (responseCode = "404", description = "Star wasn't found", content = @Content)
+        }
+    )
+    @Parameter(description = "The JSON provided by the user")
     @PutMapping("/{id}")
-    public ResponseEntity<String> updateStarFully(@PathVariable UUID id, @RequestBody StarRequestDTO request) //must return a confirmation message
+    public ResponseEntity<String> updateStarFully(@PathVariable UUID id, @RequestBody StarRequestDTO request)
     {
         starS.updateStarFully(id, request);
 
-        return ResponseEntity.ok("The object was updated successfully!"); //just so it isn't red
+        return ResponseEntity.ok("The object was updated successfully!");
     }
 
     @PatchMapping("/update/{id}")

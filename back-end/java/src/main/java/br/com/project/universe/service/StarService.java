@@ -5,10 +5,8 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Page;
 
 import java.util.UUID;
-import java.util.List;
 
 import br.com.project.universe.entity.Star;
-import br.com.project.universe.exception.StarAlreadyExistsException;
 import br.com.project.universe.exception.StarNotFoundException;
 import br.com.project.universe.dto.StarRequestDTO;
 import br.com.project.universe.dto.StarResponseDTO;
