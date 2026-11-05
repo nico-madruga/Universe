@@ -46,7 +46,7 @@ import jakarta.validation.Valid;
 @RequestMapping("/v1/universe/stars")
 public class StarController 
 {
-    StarService starS;
+    private final StarService starS;
 
     public StarController(StarService starS)
     {
