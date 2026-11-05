@@ -8,7 +8,7 @@ import jakarta.validation.constraints.Size;
 public record StarRequestDTO (
     
     @NotBlank(message = "mass cannot be empty")
-    @Size(min=3, max=100, message = "A starts name cannot must be between 3 and 100 characters long")
+    @Size(min=3, max=100, message = "A stars name cannot must be between 3 and 100 characters long")
     String name,
 
     @NotNull(message = "mass cannot be empty")
