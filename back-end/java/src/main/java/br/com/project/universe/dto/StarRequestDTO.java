@@ -2,7 +2,7 @@ package br.com.project.universe.dto;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Positive;
+import jakarta.validation.constraints.PositiveOrZero;
 import jakarta.validation.constraints.Size;
 
 public record StarRequestDTO (
@@ -12,11 +12,12 @@ public record StarRequestDTO (
     String name,
 
     @NotNull(message = "mass cannot be empty")
-    @Positive(message = "The mass of a star must be positive")
-    Double mass,
+    @PositiveOrZero(message = "The mass of a star must be positive")
+    Long mass,
 
-    @NotNull(message = "mass cannot be empty")
-    Double temperature
+    @NotNull(message = "temperature cannot be empty")
+    @PositiveOrZero(message = "The temperature of a star must be positive")
+    Long temperature
 )
 {
 

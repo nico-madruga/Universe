@@ -7,7 +7,7 @@ public record StarResponseDTO (
     UUID id,
     String name,
     Double mass,
-    Double temperature
+    Long temperature
 ){
 
 }

@@ -30,9 +30,9 @@ public class Star
     private double mass;
 
     @Column(name = "temperature", nullable = false)
-    private double temperature;
+    private Long temperature;
 
-    public Star(String name, double mass, double temperature)
+    public Star(String name, double mass, Long temperature)
     {
         this.name = name;
         this.mass = mass;

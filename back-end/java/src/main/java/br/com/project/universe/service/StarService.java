@@ -113,8 +113,6 @@ public class StarService
 
     public void deleteStar(UUID id)
     {
-        Star findStar = starRepo.findById(id).orElseThrow(() -> new StarNotFoundException("Star wasn't found"));
-        
         starRepo.deleteById(id);
     }
 }
