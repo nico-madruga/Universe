@@ -1,4 +1,6 @@
-package br.com.project.universe.exception;
+package br.com.project.universe.exception.handler;
+
+import br.com.project.universe.exception.StarNotFoundException;
 
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
