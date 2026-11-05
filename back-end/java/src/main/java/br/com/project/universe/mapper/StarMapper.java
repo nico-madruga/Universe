@@ -1,8 +1,6 @@
 package br.com.project.universe.mapper;
 
 import java.util.List;
-import java.util.UUID;
-
 
 import org.springframework.stereotype.Component;
 

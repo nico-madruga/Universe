@@ -32,8 +32,8 @@ import jakarta.transaction.Transactional;
 @Service 
 public class StarService 
 {
-    private StarRepository starRepo;
-    private StarMapper starMap;
+    private final StarRepository starRepo;
+    private final StarMapper starMap;
 
     public StarService(StarRepository starRepo, StarMapper starMap)
     {
