@@ -4,9 +4,11 @@ import org.springframework.stereotype.Service;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Page;
 
+import java.util.Optional;
 import java.util.UUID;
 
 import br.com.project.universe.entity.Star;
+import br.com.project.universe.exception.StarAlreadyExistsException;
 import br.com.project.universe.exception.StarNotFoundException;
 import br.com.project.universe.dto.StarPatchDTO;
 import br.com.project.universe.dto.StarRequestDTO;
@@ -42,6 +44,13 @@ public class StarService
     @Transactional
     public StarResponseDTO createStar(StarRequestDTO newStar)
     {
+        boolean starExists = starRepo.existsByNameIgnoreCase(newStar.name());
+
+        if(starExists)
+        {
+            throw new StarAlreadyExistsException("A star with the name " + newStar.name() + " already exists.");
+        }
+
         Star star = starMap.toEntity(newStar);
         starRepo.save(star);
         return starMap.toDTO(star);

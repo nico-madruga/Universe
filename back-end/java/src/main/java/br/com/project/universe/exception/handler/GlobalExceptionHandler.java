@@ -1,6 +1,9 @@
 package br.com.project.universe.exception.handler;
 
 import br.com.project.universe.exception.StarNotFoundException;
+import br.com.project.universe.exception.StarAlreadyExistsException;
+
+import org.springframework.dao.DataIntegrityViolationException;
 
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
@@ -18,4 +21,18 @@ public class GlobalExceptionHandler
         return ProblemDetail.forStatusAndDetail(HttpStatus.NOT_FOUND, ex.getMessage());
     }
     
+    @ExceptionHandler(StarAlreadyExistsException.class)
+    @ResponseStatus(HttpStatus.CONFLICT)
+    public ProblemDetail handleStarAlreadyExistsException(StarAlreadyExistsException ex)
+    {
+        return ProblemDetail.forStatusAndDetail(HttpStatus.CONFLICT, ex.getMessage());
+    }
+
+    @ExceptionHandler(DataIntegrityViolationException.class)
+    @ResponseStatus(HttpStatus.CONFLICT)
+    public ProblemDetail handleDataIntegrityViolationException(DataIntegrityViolationException ex)
+    {
+        return ProblemDetail.forStatusAndDetail(HttpStatus.CONFLICT, ex.getMessage());
+    }
+
 }
