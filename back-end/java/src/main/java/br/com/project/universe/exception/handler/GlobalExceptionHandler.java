@@ -5,6 +5,8 @@ import br.com.project.universe.exception.StarAlreadyExistsException;
 
 import org.springframework.dao.DataIntegrityViolationException;
 
+import java.util.NoSuchElementException;
+
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
@@ -35,4 +37,10 @@ public class GlobalExceptionHandler
         return ProblemDetail.forStatusAndDetail(HttpStatus.CONFLICT, ex.getMessage());
     }
 
+    @ExceptionHandler(NoSuchElementException.class)
+    @ResponseStatus(HttpStatus.NOT_FOUND)
+    public ProblemDetail handleNoSuchElementException(NoSuchElementException ex)
+    {
+        return ProblemDetail.forStatusAndDetail(HttpStatus.NOT_FOUND, ex.getMessage());
+    }
 }
