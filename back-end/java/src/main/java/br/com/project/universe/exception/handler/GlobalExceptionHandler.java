@@ -5,8 +5,8 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ProblemDetail;
-
 @RestControllerAdvice 
+
 public class GlobalExceptionHandler 
 {
     @ExceptionHandler(StarNotFoundException.class)
@@ -15,4 +15,5 @@ public class GlobalExceptionHandler
     {
         return ProblemDetail.forStatusAndDetail(HttpStatus.NOT_FOUND, ex.getMessage());
     }
+    
 }
