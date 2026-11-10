@@ -2,7 +2,11 @@ package br.com.project.universe.entity;
 
 import java.util.UUID;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -15,10 +19,20 @@ import lombok.Setter;
 @Entity
 public class Planet 
 {
+    @Id
+    @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
+
+    @Column (name = "name", nullable = false, unique = true)
     String name;
+
+    @Column (name = "mass", nullable = false)
     Long mass;
+
+    @Column (name = "radius", nullable = false)
     Long radius;
+
+    @Column (name = "temperature", nullable = false)
     Long temperature;
-    
+
 }
