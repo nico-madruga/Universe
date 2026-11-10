@@ -13,5 +13,7 @@ public interface StarRepository extends JpaRepository<Star, UUID>
 {
     public Page<Star> findAll(Pageable pageable);
     
+    public boolean existsByNameIgnoreCase(String name);
+
     public Optional<Star> findStarsByName(String name);
 }
