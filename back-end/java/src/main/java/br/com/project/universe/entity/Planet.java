@@ -26,16 +26,16 @@ public class Planet
     private UUID id;
 
     @Column (name = "name", nullable = false, unique = true)
-    String name;
+    private String name;
 
     @Column (name = "mass", nullable = false)
-    Long mass;
+    private Long mass;
 
     @Column (name = "radius", nullable = false)
-    Long radius;
+    private Long radius;
 
     @Column (name = "temperature", nullable = false)
-    Long temperature;
+    private Long temperature;
 
     @ManyToOne
     @JoinColumn (name = "star_id")
