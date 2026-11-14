@@ -34,8 +34,8 @@ public class Star
     @Column(name = "temperature", nullable = false)
     private Long temperature;
 
-    @OneToMany (mappedBy = "planet")
-    private List<Planet> planets;
+    @OneToMany (mappedBy = "star")
+    private List<OrbitalRelationship> orbitalRelationships;
 
     public Star(String name, double mass, Long temperature)
     {

@@ -1,5 +1,6 @@
 package br.com.project.universe.entity;
 
+import java.util.List;
 import java.util.UUID;
 
 import jakarta.persistence.Column;
@@ -9,6 +10,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -37,8 +39,7 @@ public class Planet
     @Column (name = "temperature", nullable = false)
     private Long temperature;
 
-    @ManyToOne
-    @JoinColumn (name = "star_id", nullable = true)
-    private Star star;
+    @OneToMany(mappedBy = "planet")
+    private List<OrbitalRelationship> orbitalRelationships;
 
 }
