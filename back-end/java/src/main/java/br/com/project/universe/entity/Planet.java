@@ -38,7 +38,7 @@ public class Planet
     private Long temperature;
 
     @ManyToOne
-    @JoinColumn (name = "star_id")
+    @JoinColumn (name = "star_id", nullable = true)
     private Star star;
 
 }
